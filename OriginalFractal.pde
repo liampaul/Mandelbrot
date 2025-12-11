@@ -40,14 +40,16 @@ void mousePressed()
     centerY = my - Ci_mouse * zoom;
 }
 void draw()
-{
+{ 
+    
     if(frameCount % 30 == 0)
     {
     background(255);
     for(int i = 0; i <= 800; i+=1)
     for(int j = 0; j <= 800; j+=1)
     {
-        stroke(boundcheck((j-centerX)/zoom, (i-centerY)/zoom) *255 / 50);
+        if(boundcheck((j-centerX)/zoom, (i-centerY)/zoom)==50) stroke(255); 
+        else stroke(boundcheck((j-centerX)/zoom, (i-centerY)/zoom) *255 / 60);
         strokeWeight(1);
         point(j, i);      
     }
